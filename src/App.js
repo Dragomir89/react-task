@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import './App.css'
+import Header from './components/common/Header'
+import AlbumsPage from './components/HomePage/AlbumsPage'
+import CurrentAlbum from './components/AlbumPage/CurrentAlbum'
+import FavoriteWrapper from './components/FavotitePage/FavoriteWrapper'
+import store from './store'
+import { Provider } from 'react-redux'
 
 class App extends Component {
+ 
+
   render() {
+
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <Provider store={store}>
+          <BrowserRouter>
+            <div>
+              <Header/>
+              <div className='content-wrapper'>
+                <Route exact path="/" render={() => (
+                  ( <Redirect to="/albums/1"/> ) 
+                )}/>
+                <Route path='/albums/:page' exact component={ AlbumsPage }/>
+                <Route path='/album/:id' component={ CurrentAlbum } />
+                <Route path='/favorites' component={ FavoriteWrapper } />
+              </div>  
+            
+            </div>
+          </BrowserRouter>
+        </Provider>
       </div>
-    );
+    )
   }
 }
+ 
 
-export default App;
+
+export default App

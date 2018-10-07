@@ -1,0 +1,44 @@
+section{
+    background:rgba(126, 219, 255, 0.671);
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+section :hover{
+    background-color: rgb(119, 171, 255);
+    color: aliceblue;
+    cursor: pointer;
+    moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+   /* box-shadow: 0 8px 6px -6px black; */
+    border-radius: 5px;
+}
+
+.pdding-6{
+    padding: 6px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+  
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.pagination-position{
+    display: inline-block;
+    bottom: 0;
+}
+
+.albums-wrapper{
+    border: 1px solid #00000033;
+    border-radius: 5px;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto;
+}
